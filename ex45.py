@@ -1,5 +1,5 @@
 from sys import exit
-
+from random import randint
 
 
 class Scene(object):
@@ -38,6 +38,7 @@ class Bedroom(Scene):
 
     def enter(self):
         print Bedroom.quips[randint(0, len(self.quips)-1)]
+        return 'finished'
         exit(1)
 
 class Restaurant(Scene):
@@ -168,10 +169,17 @@ class Target(Scene):
 
 class EndOfDate(Scene):
     def enter(self):
-        print "End of Date scene works"
+        print "\n"
+        print "You had quite the day, embrace your happiness and hold it inside."
+        print "Your hard work at work and home will help you become a better person"
+        print "who can deal with stress as it comes."
+        print "Now declare your love and get ready for bed, you've got another long"
+        print "day ahead of you tomorrow!"
+        return 'finished'
 
 class Finished(Scene):
     def enter(self):
+        print "\n"
         print "All in a days work."
         return 'finished'
 
@@ -218,7 +226,7 @@ def date_night():
                 print "Well maybe next time, don't make a sad face.  She'll"
                 print "get in a bad mood too and you'll not get to enjoy"
                 print "more time with her."
-                return 'grocery_store'
+                return 'bedroom'
             else:
                 print "That indecisiveness may be something else.  Or she"
                 print "might have something to do later and isn't quite sure."
